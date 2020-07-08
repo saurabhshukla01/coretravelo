@@ -72,7 +72,7 @@
             <form method="POST" enctype="multipart/form-data">
                <div class="form-group">
                   <label for="email">Destination Name:</label>
-                  <input type="text" class="form-control" name="des_name" value="<?php echo $arr['des_name']; ?> "placeholder="Enter Destination Name">
+                  <input type="text" class="form-control" name="des_name" value="<?php echo $arr['des_name']; ?>" placeholder="Enter Destination Name">
                </div>
                <div class="form-group">
                   <label for="des_image">Destination Image</label>
