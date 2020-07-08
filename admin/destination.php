@@ -39,7 +39,6 @@
          <h2 class="title">Welcome To Destinations Travelo</h2>
          <div class="alert-danger">
             <?php
-               $errormsg ="";
                if(!empty($_SESSION['status']))
                   {
                ?>

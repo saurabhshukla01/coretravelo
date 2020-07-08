@@ -82,7 +82,7 @@
                      <p class="text-danger">Image Name : <?php echo $arr['des_image'];?></p>
                   </div>
                </div>
-               <button type="submit" class="btn btn-primary" name="edit_dest">Update</button>
+               <button type="submit" class="btn btn-primary" name="edit_dest">Update destination</button>
             </form>
          </div>
       </section>

@@ -57,14 +57,14 @@
                ?>
             <form method="POST" enctype="multipart/form-data" class="m-2">
                <div class="form-group">
-                  <label for="email">Destination Name:</label>
+                  <label for="des_name">Destination Name:</label>
                   <input type="text" class="form-control" name="des_name" placeholder="Enter Destination Name" required>
                </div>
                <div class="form-group">
                   <label for="des_image">Destination Image</label>
                   <input type="file" class="form-control" name="des_image" placeholder="Upload Image">
                </div>
-               <button type="submit" class="btn btn-primary" name="add_dest">Submit</button>
+               <button type="submit" class="btn btn-primary" name="add_dest">Add Destination</button>
             </form>
          </div>
       </section>
