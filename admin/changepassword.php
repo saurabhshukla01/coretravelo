@@ -18,7 +18,7 @@
             
                   if(np == cp)
                   {
-                     $.get('api.php',{oldpass:op,newpass:np},function(data)
+                     $.get('changepasswordapi.php',{oldpass:op,newpass:np},function(data)
                         {
                            $('#op').val("");
                            $('#np').val("");
@@ -28,7 +28,7 @@
                   }
                   else
                   {
-                     $('.message').html("New Password and Confirm Password are not matching");
+                     $('.message').html("<strong class='p-2'>New Password and Confirm Password are not matching</strong>");
                   }
                })
             })
@@ -55,7 +55,7 @@
                   <input type="password" id="cp" class="form-control" required>
                </div>
                <div class="form-group">
-                  <button onclick="javascript:void" class="btn btn-success updatepass">Change Password</button>
+                  <button href="javascript:void()" class="btn btn-success updatepass">Change Password</button>
                </div>
             </section>
          </div>

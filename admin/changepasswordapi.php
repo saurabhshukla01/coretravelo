@@ -16,12 +16,12 @@
    		{
    			if(mysqli_query($link,"update admins set password='$np' where name='$adminname'"))
    			{
-   				echo "Password Change Successfully";
+   				echo "<strong class='p-2'>Password Change Successfully</strong>";
    			}
    		}
    		else
    		{
-   			echo "Old Password Incorrect";
+   			echo "<strong class='p-2'>Old Password Incorrect<strong>";
    		}
    		
    }
