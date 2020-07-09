@@ -132,57 +132,32 @@
          </div>
       </div>
       <div class="row">
+         <?php 
+            //$sql = "SELECT * FROM trips order by updated_at desc LIMIT 6";
+            $sql = "SELECT * FROM trips order by updated_at desc LIMIT 6";
+            if($result = mysqli_query($link, $sql)){
+               while($row=mysqli_fetch_assoc($result)){
+            ?>  
          <div class="col-lg-4 col-md-6">
             <div class="single_trip">
                <div class="thumb">
-                  <img src="img/trip/1.png" alt="">
+                  <img src="admin/travelo/trip/<?php echo $row['trip_image'];?>" alt="" style="width:350px;height:250px;">
                </div>
                <div class="info">
                   <div class="date">
-                     <span>Oct 12, 2019</span>
+                     <span><?php echo $row['trip_date']; ?></span>
                   </div>
                   <a href="#">
-                     <h3>Journeys Are Best Measured In
-                        New Friends
+                     <h3><?php echo $row['trip_desc']; ?>
                      </h3>
                   </a>
                </div>
             </div>
          </div>
-         <div class="col-lg-4 col-md-6">
-            <div class="single_trip">
-               <div class="thumb">
-                  <img src="img/trip/2.png" alt="">
-               </div>
-               <div class="info">
-                  <div class="date">
-                     <span>Oct 12, 2019</span>
-                  </div>
-                  <a href="#">
-                     <h3>Journeys Are Best Measured In
-                        New Friends
-                     </h3>
-                  </a>
-               </div>
-            </div>
-         </div>
-         <div class="col-lg-4 col-md-6">
-            <div class="single_trip">
-               <div class="thumb">
-                  <img src="img/trip/3.png" alt="">
-               </div>
-               <div class="info">
-                  <div class="date">
-                     <span>Oct 12, 2019</span>
-                  </div>
-                  <a href="#">
-                     <h3>Journeys Are Best Measured In
-                        New Friends
-                     </h3>
-                  </a>
-               </div>
-            </div>
-         </div>
+         <?php
+            }
+            }
+            ?>
       </div>
    </div>
 </div>

@@ -51,7 +51,6 @@
             $sql = "SELECT * FROM destinations order by updated_at desc LIMIT 9";
             if($result = mysqli_query($link, $sql)){
                while($row=mysqli_fetch_assoc($result)){
-                  $des_name = $row['des_name'];
             ?>
          <div class="col-lg-4 col-md-6">
             <div class="single_destination">
@@ -59,17 +58,7 @@
                   <img src="admin/travelo/destination/<?php echo $row['des_image'];?>" alt="" style="width:350px;height:250px;">
                </div>
                <div class="content">
-                  <p class="d-flex align-items-center"><?php echo $row['des_name'];?> 
-                     <?php 
-                        $sql1 = "SELECT count(place_name) as place_count FROM places Where des_name='$des_name'";
-                        if($result1 = mysqli_query($link, $sql1)){
-                           while($row=mysqli_fetch_assoc($result1)){?>
-                     <a href="#"><?php echo $row['place_count'];?> Places</a> 
-                     <?php
-                        }
-                        }
-                        ?>
-                  </p>
+                  <p class="d-flex align-items-center"><?php echo $row['des_name'];?> <a href="#">02 Places</a> </p>
                </div>
             </div>
          </div>
