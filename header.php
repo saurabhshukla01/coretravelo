@@ -1,3 +1,4 @@
+<?php include('admin/config/database.php'); ?>
 <!doctype html>
 <html class="no-js" lang="zxx">
    <head>

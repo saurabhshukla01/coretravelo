@@ -18,7 +18,3 @@ localhost :
 url :  http://localhost/coretravelo/admin
 
 
-============================================
-tables : 
-
-admins , destinations , trips , places

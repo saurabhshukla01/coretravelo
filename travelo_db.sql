@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jul 08, 2020 at 05:29 PM
+-- Generation Time: Jul 09, 2020 at 12:04 PM
 -- Server version: 10.4.6-MariaDB
 -- PHP Version: 7.2.22
 
@@ -42,8 +42,8 @@ CREATE TABLE `admins` (
 --
 
 INSERT INTO `admins` (`admin_id`, `name`, `email`, `password`, `created_at`, `updated_at`) VALUES
-(1, 'admin', 'admin@gmail.com', 'admin@123', '2020-07-04 11:02:14', '2020-07-04 11:04:30'),
-(2, 'saurabh', 'saurabh@gmail.com', '12345678', '2020-07-04 11:03:16', '2020-07-04 11:04:35');
+(1, 'admin', 'admin@gmail.com', 'admin@123', '2020-07-04 11:02:14', '2020-07-09 06:53:45'),
+(2, 'saurabh', 'saurabh@gmail.com', '12345678', '2020-07-04 11:03:16', '2020-07-09 04:38:25');
 
 -- --------------------------------------------------------
 
@@ -155,18 +155,20 @@ CREATE TABLE `trips` (
 INSERT INTO `trips` (`trip_id`, `trip_uid`, `trip_desc`, `trip_image`, `trip_date`, `created_at`, `updated_at`) VALUES
 (1, '5f05d3a77a09c', 'American The Beautiful', '1431063100american-beauty.jpg', 'Jan 29 , 2020', '2020-07-08 14:09:43', '2020-07-08 14:09:43'),
 (2, '5f05d45deece4', 'Enjoying The Ride', '1778766351Manali_jan.jpg', 'Jan 29 , 2020', '2020-07-08 14:12:45', '2020-07-08 14:12:45'),
-(3, '5f05d73725447', 'Taj Mahal Travelling at 2020 with frends', '1351447371India.jpg', 'Jan 20 , 2020', '2020-07-08 14:24:55', '2020-07-08 15:05:13'),
+(3, '5f05d73725447', 'Taj Mahal Travelling at 2020 with frends', '1351447371India.jpg', 'May 20 , 2020', '2020-07-08 14:24:55', '2020-07-09 10:01:52'),
 (5, '5f05d929db0a7', 'Agra Fort Travelling at 2019 with frends', '1367913596Agra-Fort.jpg', 'July 01 , 2019', '2020-07-08 14:33:13', '2020-07-08 15:03:59'),
 (6, '5f05e0e792c2a', 'Devils Pool Victoria Falls at 2018 with frends tour In Zimbabe', '1166611149Devils-Pool-Victoria-Falls.jpg', 'Jan 02 , 2018 ', '2020-07-08 15:06:15', '2020-07-08 15:06:15'),
 (7, '5f05e12477e84', 'Afgan Tour Self tour with family 2017', '909004924afgan.jpg', 'Apr 01 , 2017', '2020-07-08 15:07:16', '2020-07-08 15:07:16'),
-(8, '5f05e164befa2', 'Ulruru In Austraila at 2016', '85791738Uluru.jpg', 'Nov 24 ,  2016', '2020-07-08 15:08:20', '2020-07-08 15:08:20'),
+(8, '5f05e164befa2', 'Ulruru In Austraila at 2016', '85791738Uluru.jpg', 'June 24 ,  2020', '2020-07-08 15:08:20', '2020-07-09 10:01:40'),
 (9, '5f05e178515d6', 'Agra Fort', '651056189Agra-Fort.jpg', 'July 22 , 2015', '2020-07-08 15:08:40', '2020-07-08 15:26:48'),
 (10, '5f05e1c584d91', 'Afgan Marquee', '656483296afgan.jpg', 'Oct 31 , 2019', '2020-07-08 15:09:57', '2020-07-08 15:20:34'),
 (12, '5f05e3262184e', 'Babari marquee with friends at 2014', '28660937afgan.jpg', 'July 8, 2014', '2020-07-08 15:15:50', '2020-07-08 15:27:26'),
 (13, '5f05e36bb333a', 'Amber Palace With frends at 2019', '849727622Amber-Palace.jpg', 'July 8, 2020', '2020-07-08 15:16:59', '2020-07-08 15:16:59'),
-(14, '5f05e3c2bc035', 'American Port', '1599581294america.jpg', 'July 8, 2020', '2020-07-08 15:18:26', '2020-07-08 15:18:26'),
-(15, '5f05e4ba967d8', 'Big ban Fort at 2018', '1107423089Big-Ben.jpg', 'July 8, 2020', '2020-07-08 15:22:34', '2020-07-08 15:22:34'),
-(16, '5f05e4e8a4ed0', 'Brazil port', '1535327031Brazil.jpg', 'Oct 22 , 2018', '2020-07-08 15:23:20', '2020-07-08 15:23:20');
+(14, '5f05e3c2bc035', 'American Port', '1599581294america.jpg', 'July 7, 2020', '2020-07-08 15:18:26', '2020-07-09 10:01:12'),
+(15, '5f05e4ba967d8', 'Big ban Fort at 2018', '1107423089Big-Ben.jpg', 'March 8, 2020', '2020-07-08 15:22:34', '2020-07-09 10:01:00'),
+(16, '5f05e4e8a4ed0', 'Brazil port', '1535327031Brazil.jpg', 'Oct 22 , 2018', '2020-07-08 15:23:20', '2020-07-08 15:23:20'),
+(17, '5f06bfd74b24b', 'We set off on a journey and our goal is to have a ton of adventures.', '117164230american-trips.jpg', 'Aug 20 , 2019', '2020-07-09 06:57:27', '2020-07-09 06:57:27'),
+(18, '5f06c003b7756', 'We set off on a journey 21th Aug to 28th Aug.', '314158764Faisal-Mosque.jpg', 'July 7, 2020', '2020-07-09 06:58:11', '2020-07-09 10:00:30');
 
 --
 -- Indexes for dumped tables
@@ -223,7 +225,7 @@ ALTER TABLE `places`
 -- AUTO_INCREMENT for table `trips`
 --
 ALTER TABLE `trips`
-  MODIFY `trip_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
+  MODIFY `trip_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

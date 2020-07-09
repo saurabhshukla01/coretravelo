@@ -1,6 +1,5 @@
 <?php include('header.php'); ?>
 <?php include('slider.php'); ?>
-
 <!-- where_togo_area_start  -->
 <div class="where_togo_area">
    <div class="container">
@@ -48,66 +47,24 @@
          </div>
       </div>
       <div class="row">
+         <?php 
+            $sql = "SELECT * FROM destinations order by updated_at desc LIMIT 9";
+            if($result = mysqli_query($link, $sql)){
+               while($row=mysqli_fetch_assoc($result)){
+            ?>
          <div class="col-lg-4 col-md-6">
             <div class="single_destination">
                <div class="thumb">
-                  <img src="img/destination/1.png" alt="">
+                  <img src="admin/travelo/destination/<?php echo $row['des_image'];?>" alt="" style="width:350px;height:250px;">
                </div>
                <div class="content">
-                  <p class="d-flex align-items-center">Italy <a href="travel_destination.html">  07 Places</a> </p>
+                  <p class="d-flex align-items-center"><?php echo $row['des_name'];?> <a href="#">  02 Places</a> </p>
                </div>
             </div>
          </div>
-         <div class="col-lg-4 col-md-6">
-            <div class="single_destination">
-               <div class="thumb">
-                  <img src="img/destination/2.png" alt="">
-               </div>
-               <div class="content">
-                  <p class="d-flex align-items-center">Brazil <a href="travel_destination.html">  03 Places</a> </p>
-               </div>
-            </div>
-         </div>
-         <div class="col-lg-4 col-md-6">
-            <div class="single_destination">
-               <div class="thumb">
-                  <img src="img/destination/3.png" alt="">
-               </div>
-               <div class="content">
-                  <p class="d-flex align-items-center">America <a href="travel_destination.html">  10 Places</a> </p>
-               </div>
-            </div>
-         </div>
-         <div class="col-lg-4 col-md-6">
-            <div class="single_destination">
-               <div class="thumb">
-                  <img src="img/destination/4.png" alt="">
-               </div>
-               <div class="content">
-                  <p class="d-flex align-items-center">Nepal <a href="travel_destination.html">  02 Places</a> </p>
-               </div>
-            </div>
-         </div>
-         <div class="col-lg-4 col-md-6">
-            <div class="single_destination">
-               <div class="thumb">
-                  <img src="img/destination/5.png" alt="">
-               </div>
-               <div class="content">
-                  <p class="d-flex align-items-center">Maldives <a href="travel_destination.html">  02 Places</a> </p>
-               </div>
-            </div>
-         </div>
-         <div class="col-lg-4 col-md-6">
-            <div class="single_destination">
-               <div class="thumb">
-                  <img src="img/destination/6.png" alt="">
-               </div>
-               <div class="content">
-                  <p class="d-flex align-items-center">Indonesia <a href="travel_destination.html">  05 Places</a> </p>
-               </div>
-            </div>
-         </div>
+         <?php }
+            }
+            ?>
       </div>
    </div>
 </div>
@@ -159,25 +116,27 @@
          </div>
       </div>
       <div class="row">
+         <?php 
+            $sql = "SELECT * FROM places order by updated_at desc LIMIT 6";
+            if($result = mysqli_query($link, $sql)){
+               while($row=mysqli_fetch_assoc($result)){
+            ?>
          <div class="col-lg-4 col-md-6">
             <div class="single_place">
                <div class="thumb">
-                  <img src="img/place/1.png" alt="">
-                  <a href="#" class="prise">$500</a>
+                  <img src="admin/travelo/place/<?php echo $row['place_image'];?>" alt="" style="width:350px;height:250px;">
+                  <a href="#" class="prise"><?php echo $row['place_charge'];?></a>
                </div>
                <div class="place_info">
-                  <a href="destination_details.html">
-                     <h3>California</h3>
+                  <a href="#">
+                     <h3><?php echo $row['place_name'];?></h3>
                   </a>
-                  <p>United State of America</p>
+                  <p><?php echo $row['des_name'];?></p>
                   <div class="rating_days d-flex justify-content-between">
                      <span class="d-flex justify-content-center align-items-center">
+                     <?php echo $row['review_value'];?>&nbsp;
                      <i class="fa fa-star"></i> 
-                     <i class="fa fa-star"></i> 
-                     <i class="fa fa-star"></i> 
-                     <i class="fa fa-star"></i> 
-                     <i class="fa fa-star"></i>
-                     <a href="#">(20 Review)</a>
+                     <a href="#">(<?php echo (4 * $row['review_value']); ?> Review)</a>
                      </span>
                      <div class="days">
                         <i class="fa fa-clock-o"></i>
@@ -187,146 +146,10 @@
                </div>
             </div>
          </div>
-         <div class="col-lg-4 col-md-6">
-            <div class="single_place">
-               <div class="thumb">
-                  <img src="img/place/2.png" alt="">
-                  <a href="#" class="prise">$500</a>
-               </div>
-               <div class="place_info">
-                  <a href="destination_details.html">
-                     <h3>Korola Megna</h3>
-                  </a>
-                  <p>United State of America</p>
-                  <div class="rating_days d-flex justify-content-between">
-                     <span class="d-flex justify-content-center align-items-center">
-                     <i class="fa fa-star"></i> 
-                     <i class="fa fa-star"></i> 
-                     <i class="fa fa-star"></i> 
-                     <i class="fa fa-star"></i> 
-                     <i class="fa fa-star"></i>
-                     <a href="#">(20 Review)</a>
-                     </span>
-                     <div class="days">
-                        <i class="fa fa-clock-o"></i>
-                        <a href="#">5 Days</a>
-                     </div>
-                  </div>
-               </div>
-            </div>
-         </div>
-         <div class="col-lg-4 col-md-6">
-            <div class="single_place">
-               <div class="thumb">
-                  <img src="img/place/3.png" alt="">
-                  <a href="#" class="prise">$500</a>
-               </div>
-               <div class="place_info">
-                  <a href="destination_details.html">
-                     <h3>London</h3>
-                  </a>
-                  <p>United State of America</p>
-                  <div class="rating_days d-flex justify-content-between">
-                     <span class="d-flex justify-content-center align-items-center">
-                     <i class="fa fa-star"></i> 
-                     <i class="fa fa-star"></i> 
-                     <i class="fa fa-star"></i> 
-                     <i class="fa fa-star"></i> 
-                     <i class="fa fa-star"></i>
-                     <a href="#">(20 Review)</a>
-                     </span>
-                     <div class="days">
-                        <i class="fa fa-clock-o"></i>
-                        <a href="#">5 Days</a>
-                     </div>
-                  </div>
-               </div>
-            </div>
-         </div>
-         <div class="col-lg-4 col-md-6">
-            <div class="single_place">
-               <div class="thumb">
-                  <img src="img/place/4.png" alt="">
-                  <a href="#" class="prise">$500</a>
-               </div>
-               <div class="place_info">
-                  <a href="destination_details.html">
-                     <h3>Miami Beach</h3>
-                  </a>
-                  <p>United State of America</p>
-                  <div class="rating_days d-flex justify-content-between">
-                     <span class="d-flex justify-content-center align-items-center">
-                     <i class="fa fa-star"></i> 
-                     <i class="fa fa-star"></i> 
-                     <i class="fa fa-star"></i> 
-                     <i class="fa fa-star"></i> 
-                     <i class="fa fa-star"></i>
-                     <a href="#">(20 Review)</a>
-                     </span>
-                     <div class="days">
-                        <i class="fa fa-clock-o"></i>
-                        <a href="#">5 Days</a>
-                     </div>
-                  </div>
-               </div>
-            </div>
-         </div>
-         <div class="col-lg-4 col-md-6">
-            <div class="single_place">
-               <div class="thumb">
-                  <img src="img/place/5.png" alt="">
-                  <a href="#" class="prise">$500</a>
-               </div>
-               <div class="place_info">
-                  <a href="destination_details.html">
-                     <h3>California</h3>
-                  </a>
-                  <p>United State of America</p>
-                  <div class="rating_days d-flex justify-content-between">
-                     <span class="d-flex justify-content-center align-items-center">
-                     <i class="fa fa-star"></i> 
-                     <i class="fa fa-star"></i> 
-                     <i class="fa fa-star"></i> 
-                     <i class="fa fa-star"></i> 
-                     <i class="fa fa-star"></i>
-                     <a href="#">(20 Review)</a>
-                     </span>
-                     <div class="days">
-                        <i class="fa fa-clock-o"></i>
-                        <a href="#">5 Days</a>
-                     </div>
-                  </div>
-               </div>
-            </div>
-         </div>
-         <div class="col-lg-4 col-md-6">
-            <div class="single_place">
-               <div class="thumb">
-                  <img src="img/place/6.png" alt="">
-                  <a href="#" class="prise">$500</a>
-               </div>
-               <div class="place_info">
-                  <a href="destination_details.html">
-                     <h3>Saintmartine Iceland</h3>
-                  </a>
-                  <p>United State of America</p>
-                  <div class="rating_days d-flex justify-content-between">
-                     <span class="d-flex justify-content-center align-items-center">
-                     <i class="fa fa-star"></i> 
-                     <i class="fa fa-star"></i> 
-                     <i class="fa fa-star"></i> 
-                     <i class="fa fa-star"></i> 
-                     <i class="fa fa-star"></i>
-                     <a href="#">(20 Review)</a>
-                     </span>
-                     <div class="days">
-                        <i class="fa fa-clock-o"></i>
-                        <a href="#">5 Days</a>
-                     </div>
-                  </div>
-               </div>
-            </div>
-         </div>
+         <?php  
+            }
+            }
+            ?>
       </div>
       <div class="row">
          <div class="col-lg-12">
@@ -397,57 +220,32 @@
          </div>
       </div>
       <div class="row">
+         <?php 
+            //$sql = "SELECT * FROM trips order by updated_at desc LIMIT 6";
+            $sql = "SELECT * FROM trips order by updated_at desc LIMIT 6";
+            if($result = mysqli_query($link, $sql)){
+               while($row=mysqli_fetch_assoc($result)){
+            ?>  
          <div class="col-lg-4 col-md-6">
             <div class="single_trip">
                <div class="thumb">
-                  <img src="img/trip/1.png" alt="">
+                  <img src="admin/travelo/trip/<?php echo $row['trip_image'];?>" alt="" style="width:350px;height:250px;">
                </div>
                <div class="info">
                   <div class="date">
-                     <span>Oct 12, 2019</span>
+                     <span><?php echo $row['trip_date']; ?></span>
                   </div>
                   <a href="#">
-                     <h3>Journeys Are Best Measured In
-                        New Friends
+                     <h3><?php echo $row['trip_desc']; ?>
                      </h3>
                   </a>
                </div>
             </div>
          </div>
-         <div class="col-lg-4 col-md-6">
-            <div class="single_trip">
-               <div class="thumb">
-                  <img src="img/trip/2.png" alt="">
-               </div>
-               <div class="info">
-                  <div class="date">
-                     <span>Oct 12, 2019</span>
-                  </div>
-                  <a href="#">
-                     <h3>Journeys Are Best Measured In
-                        New Friends
-                     </h3>
-                  </a>
-               </div>
-            </div>
-         </div>
-         <div class="col-lg-4 col-md-6">
-            <div class="single_trip">
-               <div class="thumb">
-                  <img src="img/trip/3.png" alt="">
-               </div>
-               <div class="info">
-                  <div class="date">
-                     <span>Oct 12, 2019</span>
-                  </div>
-                  <a href="#">
-                     <h3>Journeys Are Best Measured In
-                        New Friends
-                     </h3>
-                  </a>
-               </div>
-            </div>
-         </div>
+         <?php
+            }
+            }
+            ?>
       </div>
    </div>
 </div>
