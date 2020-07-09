@@ -54,7 +54,7 @@
          <h2 class="m-2 p-2">Admin Login</h2>
          <input type="text" class="text-field" name="aname" value="<?php echo @$aname ?>" placeholder="Admin Name" title="Please Enter Admin Name" required>
          <input type="email" class="text-field" name="aemail" value="<?php echo @$aemail ?>" placeholder="Admin Email" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$" title="Enter Valid Email Address"  required>
-         <input type="password" class="text-field" name="password" value="<?php echo @$password ?>" placeholder="Admin Password" pattern=".{8,}" title="Eight or More Characters" required>
+         <input type="password" class="text-field" name="password" placeholder="Admin Password" required>
          <input type="submit" class="button" name="login" value="Log In" />
       </form>
    </body>
