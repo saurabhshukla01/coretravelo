@@ -1,8 +1,13 @@
 <?php include('header.php'); ?>
+<?php
+   $place_charge = $_GET['place_charge'];
+   $place_name = $_GET['place_name'];
+   ?>
 <div class="destination_banner_wrap overlay">
    <div class="destination_text text-center">
-      <h3>Saintmartine Iceland</h3>
-      <p>Pixel perfect design with awesome contents</p>
+      <h3><?php echo $place_name; ?> Details</h3>
+      <h3>Price Charge Only <?php echo $place_charge; ?></h3>
+      <p>If You Want to visit Place So Please Details Below there.</p>
    </div>
 </div>
 <div class="destination_details_info">
@@ -104,25 +109,41 @@
          </div>
       </div>
       <div class="row">
+         <?php 
+            //$sql = "SELECT * FROM places order by updated_at desc LIMIT 6";
+            $sql = "SELECT * FROM places order by review_value desc LIMIT 6";
+            if($result = mysqli_query($link, $sql)){
+               while($row=mysqli_fetch_assoc($result)){
+            ?>
          <div class="col-lg-4 col-md-6">
             <div class="single_place">
                <div class="thumb">
-                  <img src="img/place/1.png" alt="">
-                  <a href="#" class="prise">$500</a>
+                  <img src="admin/travelo/place/<?php echo $row['place_image'];?>" alt="" style="width:350px;height:250px;">
+                  <a href="#" class="prise"><?php echo $row['place_charge'];?></a>
                </div>
                <div class="place_info">
                   <a href="#">
-                     <h3>California</h3>
+                     <h3><?php echo $row['place_name'];?></h3>
                   </a>
-                  <p>United State of America</p>
+                  <p><?php echo $row['des_name'];?></p>
                   <div class="rating_days d-flex justify-content-between">
                      <span class="d-flex justify-content-center align-items-center">
-                     <i class="fa fa-star"></i> 
-                     <i class="fa fa-star"></i> 
-                     <i class="fa fa-star"></i> 
-                     <i class="fa fa-star"></i> 
-                     <i class="fa fa-star"></i>
-                     <a href="#">(20 Review)</a>
+                        <!--<?php //echo $row['review_value'];?>&nbsp;
+                           <i class="fa fa-star"></i> -->
+                        <?php
+                           $review = $row['review_value'];
+                           for($i=1;$i<=$review;$i++){ ?>
+                        <i class="fa fa-star"></i>
+                        <?php } 
+                           $i--;
+                           if($i != 5){
+                           for($i=$i;$i<5;$i++){ ?>
+                        <i class="fa fa-star-o"></i>
+                        <?php 
+                           } 
+                           } 
+                           ?>
+                        <a href="#">(<?php echo (4 * $review); ?> Review)</a>
                      </span>
                      <div class="days">
                         <i class="fa fa-clock-o"></i>
@@ -132,62 +153,10 @@
                </div>
             </div>
          </div>
-         <div class="col-lg-4 col-md-6">
-            <div class="single_place">
-               <div class="thumb">
-                  <img src="img/place/2.png" alt="">
-                  <a href="#" class="prise">$500</a>
-               </div>
-               <div class="place_info">
-                  <a href="#">
-                     <h3>Korola Megna</h3>
-                  </a>
-                  <p>United State of America</p>
-                  <div class="rating_days d-flex justify-content-between">
-                     <span class="d-flex justify-content-center align-items-center">
-                     <i class="fa fa-star"></i> 
-                     <i class="fa fa-star"></i> 
-                     <i class="fa fa-star"></i> 
-                     <i class="fa fa-star"></i> 
-                     <i class="fa fa-star"></i>
-                     <a href="#">(20 Review)</a>
-                     </span>
-                     <div class="days">
-                        <i class="fa fa-clock-o"></i>
-                        <a href="#">5 Days</a>
-                     </div>
-                  </div>
-               </div>
-            </div>
-         </div>
-         <div class="col-lg-4 col-md-6">
-            <div class="single_place">
-               <div class="thumb">
-                  <img src="img/place/3.png" alt="">
-                  <a href="#" class="prise">$500</a>
-               </div>
-               <div class="place_info">
-                  <a href="#">
-                     <h3>London</h3>
-                  </a>
-                  <p>United State of America</p>
-                  <div class="rating_days d-flex justify-content-between">
-                     <span class="d-flex justify-content-center align-items-center">
-                     <i class="fa fa-star"></i> 
-                     <i class="fa fa-star"></i> 
-                     <i class="fa fa-star"></i> 
-                     <i class="fa fa-star"></i> 
-                     <i class="fa fa-star"></i>
-                     <a href="#">(20 Review)</a>
-                     </span>
-                     <div class="days">
-                        <i class="fa fa-clock-o"></i>
-                        <a href="#">5 Days</a>
-                     </div>
-                  </div>
-               </div>
-            </div>
-         </div>
+         <?php  
+            }
+            }
+            ?>
       </div>
    </div>
 </div>

@@ -4,7 +4,9 @@
    <div class="main-content">
       <section id="adddestination">
          <div class="content-header bg-danger">
-            <marquee><h1 class="text-white">Welcome Add Travelo Destinations</h1></marquee>
+            <marquee>
+               <h1 class="text-white">Welcome Add Travelo Destinations</h1>
+            </marquee>
          </div>
          <?php
             // add Destination
@@ -62,7 +64,7 @@
                </div>
                <div class="form-group">
                   <label for="des_image">Destination Image</label>
-                  <input type="file" class="form-control" name="des_image" placeholder="Upload Image">
+                  <input type="file" class="form-control" name="des_image" placeholder="Upload Image" required>
                </div>
                <button type="submit" class="btn btn-primary" name="add_dest">Add Destination</button>
             </form>

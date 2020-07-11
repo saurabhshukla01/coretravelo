@@ -4,7 +4,7 @@
 <section id="deletetrip">
    <?php
       // delete Trip
-
+      
       if(!empty($_GET['trip_uid']) && !empty($_GET['trip_image']))
       {
          $dtrip_uid = $_GET['trip_uid'];
@@ -56,7 +56,9 @@
                <thead>
                   <tr>
                      <th>Sr.No.</th>
-                     <th>Trip UID</th>
+                     <th>Trip Name</th>
+                     <th>Travel Type</th>
+                     <th>Trip Price Charge</th>
                      <th>Trip Description</th>
                      <th>Recent Trip Date</th>
                      <th>Trip Image</th>
@@ -73,7 +75,9 @@
                      ?>
                   <tr>
                      <td><?php echo $sn; ?></td>
-                     <td><?php echo $row['trip_uid']; ?></td>
+                     <td><?php echo $row['trip_name']; ?></td>
+                     <td><?php echo $row['travel_type']; ?></td>
+                     <td><?php echo $row['trip_price']; ?></td>
                      <td><?php echo $row['trip_desc']; ?></td>
                      <td><?php echo $row['trip_date']; ?></td>
                      <td><img src="travelo/trip/<?php echo $row['trip_image'];?>" style="width:150px;height:75px;"> </td>
@@ -89,7 +93,7 @@
                      $sn++;
                         }
                      }
-
+                     
                      ?>
                </tbody>
             </table>

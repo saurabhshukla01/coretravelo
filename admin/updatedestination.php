@@ -7,6 +7,7 @@
             <marquee><h1 class="text-white">Welcome Update Travelo Destinations</h1></marquee>
          </div>
          <?php
+            $errormsg ="";
             $des_uid = $_GET['des_uid'];
             // get Destination by uid
             $select_data = mysqli_query($link,"select * from destinations where des_uid='$des_uid'");
@@ -21,7 +22,7 @@
             $fn = $_FILES['des_image']['name'];
             $tmp = $_FILES['des_image']['tmp_name'];
             
-            if(empty($fn))
+            if(empty($fn) && !empty($des_name))
             {
                // update only cname
                if(mysqli_query($link,"update destinations set des_name='$des_name' where des_uid='$des_uid'"))
@@ -32,7 +33,7 @@
                }
                else
                {
-                  $errormsg = "Destination Already Exist";
+                  $errormsg .= "Destination Already Exist";
                }
             }
             else
@@ -56,12 +57,12 @@
                   }
                   else
                   {
-                     $errormsg = "Destination Already Exist";
+                     $errormsg .= "Destination Already Exist";
                   }
                }
                else
                {
-                  $errormsg = "Only Jpg , png or Jpeg Allowed";
+                  $errormsg .= "All fields Required && Image Only Jpg , png or Jpeg Allowed";
                }
             
             }
@@ -69,6 +70,14 @@
             ?>
          <div class="col-sm-10">
             <h2 class="title">Welcome Update Travelo Destinations</h2>
+            <?php
+               if(!empty($errormsg))
+               {
+               ?>
+            <label class="alert-danger p-2"><span class="font-weight-bold m-2"><?php echo $errormsg; ?></span></label>
+            <?php
+               } 
+               ?>
             <form method="POST" enctype="multipart/form-data">
                <div class="form-group">
                   <label for="email">Destination Name:</label>

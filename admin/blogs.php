@@ -1,25 +1,25 @@
 <?php include('header.php'); ?>
 <?php include('navbar.php'); ?>
 <!-- delete Destination code -->
-<section id="deletedplace">
+<section id="deletedblog">
    <?php
-      // delete Place
+      // delete Blog Post
       
-      if(!empty($_GET['place_uid']) && !empty($_GET['place_image']))
+      if(!empty($_GET['blog_uid']) && !empty($_GET['blog_image']))
       {
-         $dplace_uid = $_GET['place_uid'];
-         $dplace_image = $_GET['place_image'];
-         mysqli_query($link,"delete from places where place_uid='$dplace_uid'");
-         @unlink("travelo/place/".$dplace_image);
-         $_SESSION['status']="Place Delete Successfully";
-         header("location:places.php");
+         $dblog_uid = $_GET['blog_uid'];
+         $dblog_image = $_GET['blog_image'];
+         mysqli_query($link,"delete from blogs where blog_uid='$dblog_uid'");
+         @unlink("travelo/blog/".$dblog_image);
+         $_SESSION['status']="Blog Post Delete Successfully";
+         header("location:blogs.php");
          exit();
       }
       ?>
    <script>
       function deleteconfirm()
       {
-         if(confirm("Do You Want To Delete Your selected Place ?"))
+         if(confirm("Do You Want To Delete Your selected Blog Post ?"))
          {
             return true;
          }
@@ -35,10 +35,10 @@
       <section id="places">
          <div class="content-header bg-danger">
             <marquee>
-               <h1 class="text-white">Welcome Travelo Popular Places</h1>
+               <h1 class="text-white">Welcome Travelo Popular Blog Posts</h1>
             </marquee>
          </div>
-         <h2 class="title">Welcome To Travelo Popular Places.</h2>
+         <h2 class="title">Welcome To Travelo Popular Blog Posts</h2>
          <div class="alert-danger">
             <?php
                if(!empty($_SESSION['status']))
@@ -51,41 +51,39 @@
                ?>
          </div>
          <div class="section-content">
-            <button class="btn btn-primary pull-right m-2 p-2" onclick="window.location.href='addplace.php'">Create New Places</button>
+            <button class="btn btn-primary m-2 p-2" onclick="window.location.href='addblog.php'">Create New Blog Post</button>
             <table id="dataTable" class="table table-striped table-bordered nowrap" cellspacing="0" width="100%">
                <thead>
                   <tr>
                      <th>Sr.No.</th>
-                     <th>Place Name</th>
-                     <th>Place Image</th>
-                     <th>Destination Name</th>
-                     <th>Travel Tour Type</th>
-                     <th>Review Value</th>
-                     <th>Place Visit Charge</th>
+                     <th>Category Name</th>
+                     <th>Blog Image</th>
+                     <th>Blog Title</th>
+                     <th>Blog Body</th>
+                     <th>Blog Post Date</th>
                      <th>Create Date</th>
                      <th colspan="3">Action</th>
                   </tr>
                </thead>
                <tbody>
                   <?php 
-                     $sql = "SELECT * FROM places order by created_at desc";
+                     $sql = "SELECT * FROM blogs order by created_at desc";
                      $sn = 1;
                      if($result = mysqli_query($link, $sql)){
                         while($row=mysqli_fetch_assoc($result)){
                      ?>
                   <tr>
                      <td><?php echo $sn; ?></td>
-                     <td><?php echo $row['place_name']; ?></td>
-                     <td><img src="travelo/place/<?php echo $row['place_image'];?>" style="width:150px;height:75px;"> </td>
-                     <td><?php echo $row['des_name']; ?></td>
-                     <td><?php echo $row['travel_type']; ?></td>
-                     <td><?php echo $row['review_value']; ?></td>
-                     <td><?php echo $row['place_charge']; ?></td>
-                     <td><?php echo $row['created_at'];?></td>
+                     <td><?php echo $row['category_name']; ?></td>
+                     <td><img src="travelo/blog/<?php echo $row['blog_image'];?>" style="width:250px;height:175px;"> </td>
+                     <td><?php echo $row['blog_title']; ?></td>
+                     <td><?php echo $row['blog_desc']; ?></td>
+                     <td><?php echo $row['blog_date']; ?></td>
+                     <td><?php echo $row['created_at']; ?></td>
                      <td>
                         <span class="btn-group" role="group">
-                        <a href="updateplace.php?place_uid=<?php echo $row['place_uid'];?>"><button class="btn btn-sm btn-primary m-1">Edit</button></a>
-                        <a href="?place_uid=<?php echo $row['place_uid'];?>&&place_image=<?php echo $row['place_image']?>"><button class="btn btn-sm btn-danger m-1" onclick="return deleteconfirm()">Delete</button></a>
+                        <a href="updateblog.php?blog_uid=<?php echo $row['blog_uid']; ?>"><button class="btn btn-sm btn-primary m-1">Edit</button></a>
+                        <a href="?blog_uid=<?php echo $row['blog_uid']; ?>&&blog_image=<?php echo $row['blog_image']; ?>"><button class="btn btn-sm btn-danger m-1" onclick="return deleteconfirm()">Delete</button></a>
                         </span>
                      </td>
                   </tr>

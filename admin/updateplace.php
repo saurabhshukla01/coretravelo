@@ -10,23 +10,23 @@
          </div>
          <?php
             $place_uid = $_GET['place_uid'];
-            // get Destination by uid
+            // get Place by uid
             $select_data = mysqli_query($link,"select * from places where place_uid='$place_uid'");
             $arr =mysqli_fetch_assoc($select_data);
             $oldimage = $arr['place_image'];
-
+            
             // update Place
             extract($_POST);
-
+            
             if(isset($edit_plc))
             {
             $fn = $_FILES['place_image']['name'];
             $tmp = $_FILES['place_image']['tmp_name'];
-
-            if(empty($fn))
+            
+            if(empty($fn) && !empty($des_name) && !empty($review_value) && !empty($place_charge) && !empty($travel_type))
             {
                // update data with all fields in places Table
-               if(mysqli_query($link,"update places set place_name='$place_name',des_name='$des_name',review_value='$review_value',place_charge='$place_charge' where place_uid='$place_uid'"))
+               if(mysqli_query($link,"update places set place_name='$place_name',des_name='$des_name',review_value='$review_value',place_charge='$place_charge' ,travel_type='$travel_type' where place_uid='$place_uid'"))
                {
                   $_SESSION['status']="Place Update Successfully";
                   header("location:places.php");
@@ -34,21 +34,21 @@
                }
                else
                {
-                  $errormsg = "Not Update Data Please Check again<br>";
+                  $errormsg = "<br> Not Update Data All Fields Must Be Required Please Check again <br>";
                }
             }
             else
             {
                // update Place Data and image
-
-
+            
+            
                $arr2 = explode('.',$fn);
                $ext = end($arr2);
-
+            
                if($ext=="jpg" || $ext=="jpeg" || $ext=="png")
                {
                   $fnn = rand().$fn;
-                  if(mysqli_query($link,"update places set place_name='$place_name',des_name='$des_name',review_value='$review_value',place_charge='$place_charge',place_image='$fnn' where place_uid='$place_uid'"))
+                  if(mysqli_query($link,"update places set place_name='$place_name',des_name='$des_name',review_value='$review_value',place_charge='$place_charge',travel_type='$travel_type',place_image='$fnn' where place_uid='$place_uid'"))
                   {
                      move_uploaded_file($tmp,"travelo/place/".$fnn);
                      unlink("travelo/place/".$oldimage);
@@ -63,9 +63,9 @@
                }
                else
                {
-                  $errormsg = "Only Jpg , png or Jpeg Allowed";
+                  $errormsg = "All Field And Image Cannot be Empty && Only Jpg , png or Jpeg Allowed";
                }
-
+            
             }
             }
             ?>
@@ -141,6 +141,26 @@
                      <option value="3">3 Outoff 5</option>
                      <option value="4">4 Outoff 5</option>
                      <option value="<?php echo $arr['review_value'];?>" selected><?php echo $arr['review_value']; ?> Outoff 5</option>
+                     <?php } ?>
+                  </select>
+               </div>
+               <div class="form-group">
+                  <label for="travel_type">Select Travel Tour Type :</label>
+                  <select name="travel_type" class="form-control">
+                     <?php if($arr['travel_type']=="Premium Travel Tour"){?>
+                     <option value="<?php echo $arr['travel_type'];?>" selected><?php echo $arr['travel_type']; ?></option>
+                     <option value="Advance Travel Tour">Advance Travel Tour</option>
+                     <option value="Simple Travel Tour">Simple Travel Tour</option>
+                     <?php } ?>
+                     <?php if($arr['travel_type']=="Advance Travel Tour"){?>
+                     <option value="Advance Travel Tour">Premium Travel Tour</option>
+                     <option value="<?php echo $arr['travel_type'];?>" selected><?php echo $arr['travel_type']; ?></option>
+                     <option value="Simple Travel Tour">Simple Travel Tour</option>
+                     <?php } ?>
+                     <?php if($arr['travel_type']=="Simple Travel Tour"){?>
+                     <option value="Advance Travel Tour">Advance Travel Tour</option>
+                     <option value="Simple Travel Tour">Premium Travel Tour</option>
+                     <option value="<?php echo $arr['travel_type'];?>" selected><?php echo $arr['travel_type']; ?></option>
                      <?php } ?>
                   </select>
                </div>

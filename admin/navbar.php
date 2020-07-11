@@ -24,6 +24,8 @@
          <li><a href="destination.php">Popular Destinations</a></li>
          <li><a href="places.php">Popular Places</a></li>
          <li><a href="trips.php">Recent Trips</a></li>
+         <li><a href="blogs.php">Blog Posts</a></li>
+         <li><a href="category.php">Categories</a></li>
       </ul>
    </nav>
 </aside>

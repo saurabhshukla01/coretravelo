@@ -1,5 +1,23 @@
 <?php include('header.php'); ?>
-<?php include('slider.php'); ?>
+<!-- bradcam_area  -->
+<?php 
+   $des_name=$_GET['fdes_name'];
+   ?>
+<div class="bradcam_area bradcam_bg_2">
+   <div class="container">
+      <div class="row">
+         <div class="col-xl-12">
+            <div class="bradcam_text text-center">
+               <marquee>
+                  <h3><?php echo $des_name; ?> Travelo Places</h3>
+                  <p>Travel the Text offers Biblical Study Trips to the lands of the Bible . biblical culture, history, language, geography, and literature.</p>
+               </marquee>
+            </div>
+         </div>
+      </div>
+   </div>
+</div>
+<!--/ bradcam_area  -->
 <!-- where_togo_area_start  -->
 <div class="where_togo_area">
    <div class="container">
@@ -48,8 +66,9 @@
       </div>
       <div class="row">
          <?php 
+            $des_name=$_GET['fdes_name'];
             //$sql = "SELECT * FROM places order by updated_at desc";
-            $sql = "SELECT * FROM places order by review_value desc";
+            $sql = "SELECT * FROM places where des_name='$des_name'";
             if($result = mysqli_query($link, $sql)){
                while($row=mysqli_fetch_assoc($result)){
             ?>

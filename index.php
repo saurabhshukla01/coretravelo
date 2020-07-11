@@ -16,17 +16,18 @@
                      <input type="text" placeholder="Where to go?">
                   </div>
                   <div class="input_field">
-                     <input id="datepicker" placeholder="Date">
+                     <input id="datepicker" placeholder="Date (Ex : July 20 , 2020)">
                   </div>
                   <div class="input_field">
                      <select>
-                        <option data-display="Travel type">Travel type</option>
-                        <option value="1">Some option</option>
-                        <option value="2">Another option</option>
+                        <option data-display="Select Travel type">Select Travel type</option>
+                        <option value="Premium Travel Tour">Premium Travel Tour</option>
+                        <option value="Advance Travel Tour">Advance Travel Tour</option>
+                        <option value="Simple Travel Tour">Simple Travel Tour</option>
                      </select>
                   </div>
                   <div class="search_btn">
-                     <button class="boxed-btn4 " type="submit" >Search</button>
+                     <button class="boxed-btn4" type="submit" >Search</button>
                   </div>
                </form>
             </div>
@@ -63,12 +64,12 @@
                      <?php 
                         $sql1 = "SELECT count(place_name) as place_count FROM places Where des_name='$des_name'";
                         if($result1 = mysqli_query($link, $sql1)){
-                           while($row=mysqli_fetch_assoc($result1)){?>
-                     <a href="#"><?php echo $row['place_count'];?> Places</a> 
+                           while($row_count=mysqli_fetch_assoc($result1)){?>
+                     <a href="filterplaces.php?fdes_name=<?php echo $row['des_name'];?>"><?php echo $row_count['place_count'];?> Places</a> 
                      <?php
                         }
                         }
-                        ?>
+                     ?>
                   </p>
                </div>
             </div>
@@ -258,7 +259,11 @@
                </div>
                <div class="info">
                   <div class="date">
-                     <span><?php echo $row['trip_date']; ?></span>
+                     <span><?php echo $row['trip_date']; ?>
+                     <a class="pull-right">Trip Charge : 
+                     <?php echo $row['trip_price']; ?>
+                     </a>
+                     </span>
                   </div>
                   <a href="#">
                      <h3><?php echo $row['trip_desc']; ?>
@@ -271,6 +276,13 @@
             }
             }
             ?>
+      </div>
+      <div class="row">
+         <div class="col-lg-12">
+            <div class="more_place_btn text-center">
+               <a class="boxed-btn4" href="usertrips.php">More Trips</a>
+            </div>
+         </div>
       </div>
    </div>
 </div>

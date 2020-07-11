@@ -1,11 +1,14 @@
 <?php include('header.php'); ?>
+<?php 
+   $category_name=$_GET['category_name'];
+   ?>
 <!-- bradcam_area  -->
 <div class="bradcam_area bradcam_bg_4">
    <div class="container">
       <div class="row">
          <div class="col-xl-12">
             <div class="bradcam_text text-center">
-               <h3>Blog Post</h3>
+               <h3>Blog Post Filter By <?php echo $category_name;?></h3>
                <p>Pixel perfect design with awesome contents</p>
             </div>
          </div>
@@ -20,7 +23,7 @@
          <div class="col-lg-8 mb-5 mb-lg-0">
             <div class="blog_left_sidebar">
                <?php 
-                  $sql = "SELECT * FROM blogs order by updated_at desc";
+                  $sql = "SELECT * FROM blogs where category_name='$category_name'";
                   if($result = mysqli_query($link, $sql)){
                      while($row=mysqli_fetch_assoc($result)){
                   ?>
@@ -59,29 +62,8 @@
                </article>
                <?php
                   }
-                  
                   }
                   ?>
-               <nav class="blog-pagination justify-content-center d-flex">
-                  <ul class="pagination">
-                     <li class="page-item">
-                        <a href="#" class="page-link" aria-label="Previous">
-                        <i class="ti-angle-left"></i>
-                        </a>
-                     </li>
-                     <li class="page-item">
-                        <a href="#" class="page-link">1</a>
-                     </li>
-                     <li class="page-item active">
-                        <a href="#" class="page-link">2</a>
-                     </li>
-                     <li class="page-item">
-                        <a href="#" class="page-link" aria-label="Next">
-                        <i class="ti-angle-right"></i>
-                        </a>
-                     </li>
-                  </ul>
-               </nav>
             </div>
          </div>
          <div class="col-lg-4">

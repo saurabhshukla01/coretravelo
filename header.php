@@ -48,21 +48,14 @@
                                     <li><a class="active" href="index.php">home</a></li>
                                     <li><a href="about.php">About</a></li>
                                     <li><a class="" href="travel_destination.php">Destination</a></l/li>
+                                    <li><a href="blog.php">Blog Post</a></li>
+                                    <li><a href="contact.php">Contact</a></li>
                                     <li>
                                        <a href="#">pages <i class="ti-angle-down"></i></a>
                                        <ul class="submenu">
-                                          <li><a href="destination_details.php">Destinations details</a></li>
                                           <li><a href="elements.html">elements</a></li>
                                        </ul>
                                     </li>
-                                    <li>
-                                       <a href="#">blog <i class="ti-angle-down"></i></a>
-                                       <ul class="submenu">
-                                          <li><a href="blog.php">blog</a></li>
-                                          <li><a href="single-blog.php">single-blog</a></li>
-                                       </ul>
-                                    </li>
-                                    <li><a href="contact.php">Contact</a></li>
                                  </ul>
                               </nav>
                            </div>
