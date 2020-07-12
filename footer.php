@@ -9,34 +9,34 @@
                      <img src="img/footer_logo.png" alt="">
                      </a>
                   </div>
-                  <p>5th flora, 700/D kings road, green <br> lane New York-1782 <br>
-                     <a href="#">+10 367 826 2567</a> <br>
-                     <a href="#">contact@carpenter.com</a>
+                  <p>Noida 137 , B044 Gulshan Vivante <br> Club Noida 137 , Nearest <br> Metro Station 137 Noida <br>
+                     <a href="#">+91 (7290 944 755)</a> <br>
+                     <a href="#">Gpnoida137.admin@gmail.com</a>
                   </p>
                   <div class="socail_links">
                      <ul>
                         <li>
-                           <a href="#">
+                           <a href="https://www.facebook.com/">
                            <i class="ti-facebook"></i>
                            </a>
                         </li>
                         <li>
-                           <a href="#">
+                           <a href="https://twitter.com/LOGIN">
                            <i class="ti-twitter-alt"></i>
                            </a>
                         </li>
                         <li>
-                           <a href="#">
+                           <a href="https://www.instagram.com/accounts/login/">
                            <i class="fa fa-instagram"></i>
                            </a>
                         </li>
                         <li>
-                           <a href="#">
+                           <a href="https://www.pinterest.com/">
                            <i class="fa fa-pinterest"></i>
                            </a>
                         </li>
                         <li>
-                           <a href="#">
+                           <a href="https://www.youtube.com/">
                            <i class="fa fa-youtube-play"></i>
                            </a>
                         </li>
@@ -47,13 +47,14 @@
             <div class="col-xl-2 col-md-6 col-lg-2">
                <div class="footer_widget">
                   <h3 class="footer_title">
-                     Company
+                     Pages Link
                   </h3>
                   <ul class="links">
-                     <li><a href="#">Pricing</a></li>
-                     <li><a href="#">About</a></li>
-                     <li><a href="#"> Gallery</a></li>
-                     <li><a href="#"> Contact</a></li>
+                     <li><a href="index.php">Home</a></li>
+                     <li><a href="about.php">About</a></li>
+                     <li><a href="usertrips.php">Recent Trips</a></li>
+                     <li><a href="userplaces.php">Places</a></li>
+                     <li><a href="contact.php">Contact</a></li>
                   </ul>
                </div>
             </div>
@@ -63,53 +64,39 @@
                      Popular destination
                   </h3>
                   <ul class="links double_links">
-                     <li><a href="#">Indonesia</a></li>
-                     <li><a href="#">America</a></li>
-                     <li><a href="#">India</a></li>
-                     <li><a href="#">Switzerland</a></li>
-                     <li><a href="#">Italy</a></li>
-                     <li><a href="#">Canada</a></li>
-                     <li><a href="#">Franch</a></li>
-                     <li><a href="#">England</a></li>
+                     <?php 
+                        $sql = "SELECT * FROM destinations order by updated_at desc LIMIT 10";
+                        if($result = mysqli_query($link, $sql)){
+                           while($row=mysqli_fetch_assoc($result)){
+                        ?>
+                     <li><a href="#"><?php echo $row['des_name'];?></a></li>
+                     <?php
+                        }
+                        }
+                        ?>
                   </ul>
                </div>
             </div>
             <div class="col-xl-3 col-md-6 col-lg-3">
                <div class="footer_widget">
                   <h3 class="footer_title">
-                     Instagram
+                     Popular Destinations
                   </h3>
                   <div class="instagram_feed">
+                     <?php 
+                        $sql = "SELECT * FROM destinations order by updated_at desc LIMIT 6";
+                        if($result = mysqli_query($link, $sql)){
+                           while($row=mysqli_fetch_assoc($result)){
+                        ?>
                      <div class="single_insta">
                         <a href="#">
-                        <img src="img/instagram/1.png" alt="">
+                        <img class="rounded" src="admin/travelo/destination/<?php echo $row['des_image'];?>" alt="destination Images" style="width:120px;height:80px;">
                         </a>
                      </div>
-                     <div class="single_insta">
-                        <a href="#">
-                        <img src="img/instagram/2.png" alt="">
-                        </a>
-                     </div>
-                     <div class="single_insta">
-                        <a href="#">
-                        <img src="img/instagram/3.png" alt="">
-                        </a>
-                     </div>
-                     <div class="single_insta">
-                        <a href="#">
-                        <img src="img/instagram/4.png" alt="">
-                        </a>
-                     </div>
-                     <div class="single_insta">
-                        <a href="#">
-                        <img src="img/instagram/5.png" alt="">
-                        </a>
-                     </div>
-                     <div class="single_insta">
-                        <a href="#">
-                        <img src="img/instagram/6.png" alt="">
-                        </a>
-                     </div>
+                     <?php
+                        }
+                        }
+                        ?>
                   </div>
                </div>
             </div>
@@ -123,7 +110,7 @@
             <div class="col-xl-12">
                <p class="copy_right text-center">
                   <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
-                  Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | This template is made with <i class="fa fa-heart-o" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank">Colorlib</a>
+                  Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights has been Reverted with | This Design is made with <i class="fa fa-heart-o" aria-hidden="true"></i> by <a href="index.php" target="_blank">Travelo Tour created By Saurabh Shukla</a>
                   <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
                </p>
             </div>
@@ -179,6 +166,6 @@
         rightIcon: '<span class="fa fa-caret-down"></span>'
     }
    });
-</script>-->
+   </script>-->
 </body>
 </html>

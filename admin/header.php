@@ -16,6 +16,7 @@
       <meta name="description" content="">
       <!-- Mobile Specific Meta -->
       <meta name="viewport" content="width=device-width, initial-scale=1">
+      <link rel="shortcut icon" type="image/x-icon" href="img/travelo-admin.png">
       <!-- Bootstrap 4 link -->
       <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
       <link rel="stylesheet" href="css/mystyle.css">

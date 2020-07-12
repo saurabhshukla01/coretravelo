@@ -8,7 +8,7 @@
       <meta name="description" content="">
       <meta name="viewport" content="width=device-width, initial-scale=1">
       <!-- <link rel="manifest" href="site.webmanifest"> -->
-      <link rel="shortcut icon" type="image/x-icon" href="img/favicon.png">
+      <link rel="shortcut icon" type="image/x-icon" href="img/traveloicon.png">
       <!-- Place favicon.ico in the root directory -->
       <!-- CSS here -->
       <link rel="stylesheet" href="css/bootstrap.min.css">
@@ -63,14 +63,14 @@
                         <div class="col-xl-4 col-lg-4 d-none d-lg-block">
                            <div class="social_wrap d-flex align-items-center justify-content-end">
                               <div class="number">
-                                 <p> <i class="fa fa-phone"></i> 10(256)-928 256</p>
+                                 <p> <i class="fa fa-phone"></i> +91 (7290 944 755)</p>
                               </div>
                               <div class="social_links d-none d-xl-block">
                                  <ul>
-                                    <li><a href="#"> <i class="fa fa-instagram"></i> </a></li>
-                                    <li><a href="#"> <i class="fa fa-linkedin"></i> </a></li>
-                                    <li><a href="#"> <i class="fa fa-facebook"></i> </a></li>
-                                    <li><a href="#"> <i class="fa fa-google-plus"></i> </a></li>
+                                    <li><a href="https://www.instagram.com/accounts/login/"> <i class="fa fa-instagram"></i> </a></li>
+                                    <li><a href="https://www.linkedin.com/login"> <i class="fa fa-linkedin"></i> </a></li>
+                                    <li><a href="https://www.facebook.com/"> <i class="fa fa-facebook"></i> </a></li>
+                                    <li><a href="https://www.google.com/"> <i class="fa fa-google-plus"></i> </a></li>
                                  </ul>
                               </div>
                            </div>

@@ -91,21 +91,22 @@
             <div class="media contact-info">
                <span class="contact-info__icon"><i class="ti-home"></i></span>
                <div class="media-body">
-                  <h3>Buttonwood, California.</h3>
-                  <p>Rosemead, CA 91770</p>
+                  <h3>Noida 137 , B044 Gulshan Vivante</h3>
+                  <p>Club Noida 137 , Nearest</p>
+                  <p>Metro Station 137 Noida</p>
                </div>
             </div>
             <div class="media contact-info">
                <span class="contact-info__icon"><i class="ti-tablet"></i></span>
                <div class="media-body">
-                  <h3>+1 253 565 2365</h3>
-                  <p>Mon to Fri 9am to 6pm</p>
+                  <h3>+91 (7290 944 755)</h3>
+                  <p>Mon to Fri 8:30am to 6:30pm</p>
                </div>
             </div>
             <div class="media contact-info">
                <span class="contact-info__icon"><i class="ti-email"></i></span>
                <div class="media-body">
-                  <h3>support@colorlib.com</h3>
+                  <h3>Gpnoida137.admin@gmail.com</h3>
                   <p>Send us your query anytime!</p>
                </div>
             </div>

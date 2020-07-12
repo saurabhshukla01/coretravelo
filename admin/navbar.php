@@ -26,6 +26,7 @@
          <li><a href="trips.php">Recent Trips</a></li>
          <li><a href="blogs.php">Blog Posts</a></li>
          <li><a href="category.php">Categories</a></li>
+         <li><a href="comments.php">Comments</a></li>
       </ul>
    </nav>
 </aside>
