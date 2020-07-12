@@ -146,7 +146,7 @@
                   <img src="img/blog/author.png" alt="">
                   <div class="media-body">
                      <a href="#">
-                        <h4><?php echo $row['comment_name'];?></h4>
+                        <h4><?php echo $row['comment_name'];?>&nbsp;(<?php echo $row['comment_email'];?>)</h4>
                      </a>
                      <p><?php echo $row['comment_body'];?>
                      </p>
@@ -159,11 +159,26 @@
                }
                ?>
             <div class="comments-area">
-               <h4>05 Comments</h4>
+               <?php 
+                  $sql = "SELECT count(comment_name) as count_comment FROM comments where blog_uid='$blog_uid'";
+                     if($result = mysqli_query($link, $sql)){
+                        while($row=mysqli_fetch_assoc($result)){
+                           $count_comment=$row['count_comment']-1;
+                           if($count_comment>0){?>
+               <h4><?php echo @$count_comment;?> Comments</h4>
+               <?php 
+                  }else{?>
+               <h4>No Comments</h4>
+               <?php 
+                  }
+                  }
+                  }
+                  ?>
                <?php 
                   $sql = "SELECT * FROM comments where blog_uid='$blog_uid'";
                      if($result = mysqli_query($link, $sql)){
-                        while($row=mysqli_fetch_assoc($result)){?> 
+                        while($row=mysqli_fetch_assoc($result)){
+                           if($row['comment_email']!="saurabh@gmail.com" &&$row['comment_email']!="admin@gmail.com"){?> 
                <div class="comment-list">
                   <div class="single-comment justify-content-between d-flex">
                      <div class="user justify-content-between d-flex">
@@ -190,6 +205,7 @@
                   </div>
                </div>
                <?php
+                  }
                   }
                   }
                   ?>
