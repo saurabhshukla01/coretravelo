@@ -55,65 +55,35 @@
          <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDpfS1oRGreGSBU5HHjMmQ3o5NLw7VdJ6I&amp;callback=initMap"></script>
       </div>
       <div class="row">
-         <?php 
-            // add Contact
-            $errormsg ="";
-            $contact_message=$contact_email=$contact_name=$contact_subject="";
-            
-            extract($_POST);
-            if(isset($contact_sub)){
-               $contact_uid=uniqid();
-               $contact_subject=trim($contact_subject);
-               $contact_message=trim($contact_message);
-               $contact_email=trim($contact_email);
-               $contact_name=trim($contact_name);
-            
-               if(empty($contact_subject)||empty($contact_message)||empty($contact_email)||empty($contact_name)||empty($contact_subject)&&empty($contact_message)&&empty($contact_email)&&empty($contact_name)){
-                  $errormsg .="All Fields Must be Required.";
-               }
-               else{
-                  if(mysqli_query($link,"insert into contacts(contact_uid,contact_subject,contact_message,contact_email,contact_name) values('$contact_uid','$contact_subject','$contact_message','$contact_email','$contact_name')")){
-                       $errormsg .="Please Visit Your Email Address Your Query is submmitted.";
-                  }else{
-                     $errormsg .="Not Post Contact Query please Try again";
-                  }
-               }
-            
-            }
-            
-            ?>
          <div class="col-12">
             <h2 class="contact-title">Get in Touch</h2>
          </div>
          <div class="col-lg-8">
-            <?php if(!empty($errormsg)){?>
-            <label class="alert-danger mb-2 p-2"><?php echo $errormsg;?></label>
-            <?php } ?> 
-            <form class="form-contact contact_form" method="POST">
+            <form class="form-contact contact_form" action="travelomailer.php" method="post" id="contactForm" novalidate="novalidate">
                <div class="row">
                   <div class="col-12">
                      <div class="form-group">
-                        <textarea class="form-control w-100" name="contact_message" cols="30" rows="9" placeholder=" Enter Message"></textarea>
+                        <textarea class="form-control w-100" name="message" id="message" cols="30" rows="9" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Enter Message'" placeholder=" Enter Message"></textarea>
                      </div>
                   </div>
                   <div class="col-sm-6">
                      <div class="form-group">
-                        <input class="form-control" name="contact_name" placeholder="Enter your name">
+                        <input class="form-control valid" name="name" id="name" type="text" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Enter your name'" placeholder="Enter your name">
                      </div>
                   </div>
                   <div class="col-sm-6">
                      <div class="form-group">
-                        <input type="email" class="form-control" name="contact_email"  placeholder="Enter email address">
+                        <input class="form-control valid" name="email" id="email" type="email" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Enter email address'" placeholder="Email">
                      </div>
                   </div>
                   <div class="col-12">
                      <div class="form-group">
-                        <input class="form-control" name="contact_subject" type="text" placeholder="Enter Subject">
+                        <input class="form-control" name="subject" id="subject" type="text" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Enter Subject'" placeholder="Enter Subject">
                      </div>
                   </div>
                </div>
                <div class="form-group mt-3">
-                  <input type="submit" name="contact_sub" class="button button-contactForm boxed-btn" value="Send Query">
+                  <button type="submit" class="button button-contactForm boxed-btn">Send</button>
                </div>
             </form>
          </div>

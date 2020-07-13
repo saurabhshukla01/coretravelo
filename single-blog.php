@@ -163,9 +163,9 @@
                   $sql = "SELECT count(comment_name) as count_comment FROM comments where blog_uid='$blog_uid'";
                      if($result = mysqli_query($link, $sql)){
                         while($row=mysqli_fetch_assoc($result)){
-                           $count_comment=$row['count_comment']-1;
-                           if($count_comment>0){?>
-               <h4><?php echo @$count_comment;?> Comments</h4>
+                           $count_comment=$row['count_comment'];
+                           if($count_comment!=0){?>
+               <h4><?php echo @($count_comment-1);?> Comments</h4>
                <?php 
                   }else{?>
                <h4>No Comments</h4>
@@ -225,12 +225,12 @@
                   $comment_email=trim($comment_email);
                   $comment_website=trim($comment_website);
                
-                  if(empty($blog_uid)&&empty($comment_body)&&empty($comment_body)&&empty($comment_body)&&empty($comment_body)){
+                  if(empty($comment_body)||empty($comment_name)||empty($comment_email)||empty($comment_website)||empty($comment_body)&&empty($comment_name)&&empty($comment_email)&&empty($comment_website)){
                      $errormsg .="All Fields Must be Required.";
                   }
                   else{
                      if(mysqli_query($link,"insert into comments(comment_uid,blog_uid,comment_body,comment_name,comment_email,comment_website) values('$comment_uid','$blog_uid','$comment_body','$comment_name','$comment_email','$comment_website')")){
-               
+                        $errormsg .="Your Comments Is successfully Post";
                      }else{
                         $errormsg .="Not Post Comments please Try again";
                      }

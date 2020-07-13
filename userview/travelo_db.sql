@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jul 12, 2020 at 06:04 PM
+-- Generation Time: Jul 13, 2020 at 07:14 AM
 -- Server version: 10.4.6-MariaDB
 -- PHP Version: 7.2.22
 
@@ -140,7 +140,38 @@ INSERT INTO `comments` (`comment_id`, `comment_uid`, `blog_uid`, `comment_body`,
 (3, '5f0adb48127f5', '5f0a8331b0756', 'Travelo is a comprehensive feature rich fully Responsive ... issue on blog comment - Fixed location custom taxonomy image upload issue. # Vijay@gmail.com', 'Vijay Kumar', 'vijay@gmail.com', 'http://localhost/coretravelo/', '2020-07-12 04:13:36', '2020-07-12 05:41:37'),
 (4, '5f0adbd6a3b75', '5f0a8331b0756', 'Byline: Karen Leslie Did you know you can leave a comment on a lot of the BNT Travel Blogs, in particular the Photo Blogs? The comment box will appear at. # Byline: Karen', 'Byline Karen', 'Byline.Karen@gmail.com', 'http://localhost/coretravelo/', '2020-07-12 04:15:58', '2020-07-12 05:41:58'),
 (5, '5f0af05a06805', '5f0a8277bf654', 'All Blog Post Data with Title Must be Required These updates come as part of the Business Application Platform and PowerApps announcements made today. # mira agarwal', 'Mira Agarwal', 'mira.agarwal@gmail.com', 'http://localhost/coretravelo/', '2020-07-12 05:43:30', '2020-07-12 05:43:30'),
-(6, '5f0af0d6aa840', '5f0a8277bf654', 'This post is good please follow it blog post data', 'Saurabh Shukla', 'admin@gmail.com', 'http://localhost/coretravelo/', '2020-07-12 05:45:34', '2020-07-12 05:45:34');
+(6, '5f0af0d6aa840', '5f0a8277bf654', 'This post is good please follow it blog post data', 'Saurabh Shukla', 'admin@gmail.com', 'http://localhost/coretravelo/', '2020-07-12 05:45:34', '2020-07-12 05:45:34'),
+(7, '5f0be2cca083a', '5f09575fc051e', 'For an unforgettable experience, travellers should embark on hot air balloon ride over the Hunter Valley at sunrise', 'vimal', 'vimal@gmail.com', 'http://localhost/coretravelo/', '2020-07-13 04:27:56', '2020-07-13 04:27:56'),
+(8, '5f0be4588c594', '5f09575fc051e', 'Good blog', 'Saurabh Shukla', 'admin@gmail.com', 'http://localhost/coretravelo/', '2020-07-13 04:34:32', '2020-07-13 04:34:32'),
+(9, '5f0be55a3ec1c', '5f0a8232cd72e', 'text is good for every one', 'Saurabh Shukla', 'saurabh@gmail.com', 'http://localhost/coretravelo/', '2020-07-13 04:38:50', '2020-07-13 04:38:50'),
+(10, '5f0be59a59c99', '5f0a8232cd72e', 'Too good blog its fine', 'vijay', 'vijay@gmail.com', 'http://localhost/coretravelo/', '2020-07-13 04:39:54', '2020-07-13 04:39:54'),
+(11, '5f0be60f597a9', '5f0959184a435', 'All Blog Post Data with Title Must be Required These updates come as part of the Business Application Platform and PowerApps announcements made today.', 'vimal', 'vimal@gmail.com', 'http://localhost/coretravelo/', '2020-07-13 04:41:51', '2020-07-13 04:41:51'),
+(12, '5f0be6e131155', '5f0959184a435', 'Announce it on the blog. People see your website as a source of the real information.', 'admin', 'saurabh@gmail.com', 'http://localhost/coretravelo/', '2020-07-13 04:45:21', '2020-07-13 04:45:21');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `contacts`
+--
+
+CREATE TABLE `contacts` (
+  `contact_id` int(11) NOT NULL,
+  `contact_uid` varchar(20) NOT NULL,
+  `contact_message` text NOT NULL,
+  `contact_name` varchar(255) NOT NULL,
+  `contact_email` varchar(255) NOT NULL,
+  `contact_subject` varchar(255) NOT NULL,
+  `created_at` timestamp NOT NULL DEFAULT current_timestamp()
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `contacts`
+--
+
+INSERT INTO `contacts` (`contact_id`, `contact_uid`, `contact_message`, `contact_name`, `contact_email`, `contact_subject`, `created_at`) VALUES
+(1, '5f0be055e4217', 'Please I want to travelo ticket some deduction please visit my tour in simple cost.', 'saurabh shukla', 'saurabh@gmail.com', 'Some Concession of tickets.', '2020-07-13 04:17:25'),
+(2, '5f0be0b31a9f3', 'Your tour is osm I am trying to next time again.', 'mira', 'mira@gmail.in', 'Tour Travel trip', '2020-07-13 04:18:59'),
+(3, '5f0be0c063ec5', 'Your site Good', 'vijay mukraji', 'vijay.muk@gmail.com', 'Site Visit', '2020-07-13 04:19:12');
 
 -- --------------------------------------------------------
 
@@ -318,6 +349,12 @@ ALTER TABLE `comments`
   ADD PRIMARY KEY (`comment_id`);
 
 --
+-- Indexes for table `contacts`
+--
+ALTER TABLE `contacts`
+  ADD PRIMARY KEY (`contact_id`);
+
+--
 -- Indexes for table `destinations`
 --
 ALTER TABLE `destinations`
@@ -361,7 +398,13 @@ ALTER TABLE `categories`
 -- AUTO_INCREMENT for table `comments`
 --
 ALTER TABLE `comments`
-  MODIFY `comment_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `comment_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
+
+--
+-- AUTO_INCREMENT for table `contacts`
+--
+ALTER TABLE `contacts`
+  MODIFY `contact_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `destinations`
